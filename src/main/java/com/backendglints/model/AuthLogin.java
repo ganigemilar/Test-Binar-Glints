@@ -52,7 +52,7 @@ public class AuthLogin {
 		}
 
 	}
-
+	
 	public class Errors {
 
 	}
