@@ -1,5 +1,7 @@
 package com.backendglints.model.response;
 
+import java.util.List;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -9,7 +11,7 @@ public class ProductResponse {
 	private String status;
 	@SerializedName("result")
 	@Expose
-	private Result result;
+	private List<Result> result = null;
 	@SerializedName("errors")
 	@Expose
 	private Errors errors;
@@ -22,11 +24,11 @@ public class ProductResponse {
 		this.status = status;
 	}
 
-	public Result getResult() {
+	public List<Result> getResult() {
 		return result;
 	}
 
-	public void setResult(Result result) {
+	public void setResult(List<Result> result) {
 		this.result = result;
 	}
 
@@ -108,7 +110,7 @@ public class ProductResponse {
 		public void setUpdatedAt(String updatedAt) {
 			this.updatedAt = updatedAt;
 		}
-		
+
 		public String getMessage() {
 			return message;
 		}

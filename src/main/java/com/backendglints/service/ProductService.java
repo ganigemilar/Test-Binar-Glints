@@ -7,7 +7,7 @@ import com.backendglints.model.request.ProductRequest;
 import com.backendglints.model.response.ProductResponse;
 
 public interface ProductService {
-	public List<ProductResponse> getAllProducts() throws IOException;
+	public ProductResponse getAllProducts() throws IOException;
 	
 	public ProductResponse getProductById(String id) throws IOException;
 	

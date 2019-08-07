@@ -37,18 +37,18 @@ public interface TestBinarApi {
 
 	public interface Products {
 		@GET("products")
-		Call<List<ProductResponse>> showAllProducts(@Header("Authorization") String authKey);
+		Call<ProductResponse> showAllProducts();
 
 		@GET("products/{id}")
-		Call<ProductResponse> showProductById(@Header("Authorization") String authKey, @Path("id") String id);
+		Call<ResponseBody> showProductById(@Path("id") String id);
 
 		@POST("products")
-		Call<ProductResponse> createProduct(@Header("Authorization") String authKey, @Body ProductRequest product);
+		Call<ProductResponse> createProduct(@Body ProductRequest product);
 
 		@PUT("products/{id}")
-		Call<ProductResponse> updateProduct(@Header("Authorization") String authKey, @Path("id") String id, @Body ProductRequest product);
+		Call<ProductResponse> updateProduct(@Path("id") String id, @Body ProductRequest product);
 
 		@DELETE("products/{id}")
-		Call<ProductResponse> deleteProductById(@Header("Authorization") String authKey, @Path("id") String id);
+		Call<ProductResponse> deleteProductById(@Path("id") String id);
 	}
 }
