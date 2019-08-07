@@ -25,7 +25,7 @@ import com.backendglints.service.ApiManagementService.ApiVersion;
 import com.backendglints.service.TestBinarService;
 
 @RestController
-public class TestBinarController {
+public class TestBinarRestController {
 	@Autowired
 	private TestBinarService testBinarService;
 	
