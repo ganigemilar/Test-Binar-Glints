@@ -1,9 +1,9 @@
-package com.backendglints.model;
+package com.backendglints.model.response;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Product {
+public class ProductResponse {
 	@SerializedName("status")
 	@Expose
 	private String status;
@@ -57,6 +57,9 @@ public class Product {
 		@SerializedName("updated_at")
 		@Expose
 		private String updatedAt;
+		@SerializedName("message")
+		@Expose
+		private String message;
 
 		public Integer getId() {
 			return id;
@@ -105,8 +108,16 @@ public class Product {
 		public void setUpdatedAt(String updatedAt) {
 			this.updatedAt = updatedAt;
 		}
+		
+		public String getMessage() {
+			return message;
+		}
+
+		public void setMessage(String message) {
+			this.message = message;
+		}
 	}
-	
+
 	public class Errors {
 
 	}

@@ -1,9 +1,9 @@
-package com.backendglints.model;
+package com.backendglints.model.response;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class AuthLogin {
+public class Session {
 	@SerializedName("status")
 	@Expose
 	private String status;
