@@ -19,18 +19,21 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
-public interface TestBinarAPI {
-	public static final String BASE_URL_AUTH = "https://test-binar.herokuapp.com/auth/";
-	
-	@POST("login")
-	Call<Session> login(@Field("email") String email, @Field("password") String password);
+public interface TestBinarApi {
+	public static final String BASE_URL_V1 = "https://test-binar.herokuapp.com/v1/";
+	public static final String BASE_URL_V2 = "https://test-binar.herokuapp.com/v2/";
 
-	@POST("signup")
-	Call<UserResponse> signUp(@Body UserRequest user);
-	
-	public interface Version1 {
-		public static final String BASE_URL_V1 = "https://test-binar.herokuapp.com/v1/";
+	public interface Authentication {
+		public static final String BASE_URL_AUTH = "https://test-binar.herokuapp.com/auth/";
 
+		@POST("login")
+		Call<Session> login(@Field("email") String email, @Field("password") String password);
+
+		@POST("signup")
+		Call<UserResponse> signUp(@Body UserRequest user);
+	}
+
+	public interface Products {
 		@GET("products")
 		Call<List<ProductResponse>> showAllProducts(@Header("Authorization") String authKey);
 
@@ -45,12 +48,5 @@ public interface TestBinarAPI {
 
 		@DELETE("products/{id}")
 		Call<ProductResponse> deleteProductById(@Header("Authorization") String authKey, @Path("id") String id);
-	}
-	
-	public interface Version2 {
-		public static final String BASE_URL_V2 = "https://test-binar.herokuapp.com/v2/";
-		
-		@GET("products")
-		Call<ResponseBody> showAllProducts();
 	}
 }
