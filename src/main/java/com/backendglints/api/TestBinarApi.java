@@ -2,17 +2,19 @@ package com.backendglints.api;
 
 import java.util.List;
 
+import com.backendglints.model.request.LoginRequest;
 import com.backendglints.model.request.ProductRequest;
-import com.backendglints.model.request.UserRequest;
-import com.backendglints.model.response.Session;
+import com.backendglints.model.request.SignUpRequest;
+import com.backendglints.model.response.LoginResponse;
 import com.backendglints.model.response.ProductResponse;
-import com.backendglints.model.response.UserResponse;
+import com.backendglints.model.response.SignUpResponse;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
@@ -27,10 +29,10 @@ public interface TestBinarApi {
 		public static final String BASE_URL_AUTH = "https://test-binar.herokuapp.com/auth/";
 
 		@POST("login")
-		Call<Session> login(@Field("email") String email, @Field("password") String password);
+		Call<LoginResponse> login(@Body LoginRequest login);
 
 		@POST("signup")
-		Call<UserResponse> signUp(@Body UserRequest user);
+		Call<SignUpResponse> signUp(@Body SignUpRequest signUp);
 	}
 
 	public interface Products {

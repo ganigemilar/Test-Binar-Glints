@@ -7,24 +7,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import static com.backendglints.api.TestBinarApi.*;
+
+import com.backendglints.model.request.LoginRequest;
 import com.backendglints.model.request.ProductRequest;
-import com.backendglints.model.request.UserRequest;
+import com.backendglints.model.request.SignUpRequest;
 import com.backendglints.model.response.ProductResponse;
-import com.backendglints.model.response.Session;
-import com.backendglints.model.response.UserResponse;
+import com.backendglints.model.response.LoginResponse;
+import com.backendglints.model.response.SignUpResponse;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 @Service
 public class TestBinarService implements AuthenticationService, ProductService {
-	@Autowired
-	private ApiManagementService apiManagementService;
+	private ApiManagementService apiManagementService = new ApiManagementService();
 	
 	private Authentication authentication = apiManagementService.getAuthApi();
 	private Products products = apiManagementService.getProductsApi();
 	
-	private Session session;
+	private LoginResponse session;
 	
 	public ApiManagementService getApiManagementService() {
 		return apiManagementService;
@@ -34,20 +35,20 @@ public class TestBinarService implements AuthenticationService, ProductService {
 		this.apiManagementService = apiManagementService;
 	}
 	
-	public Session getSession() {
+	public LoginResponse getSession() {
 		return session;
 	}
 
 	@Override
-	public Session login(String email, String password) throws IOException {
-		Session session = authentication.login(email, password).execute().body();
+	public LoginResponse login(LoginRequest login) throws IOException {
+		LoginResponse session = authentication.login(login).execute().body();
 		this.session = session;
 		return session;
 	}
 
 	@Override
-	public UserResponse signUp(UserRequest user) throws IOException {
-		return authentication.signUp(user).execute().body();
+	public SignUpResponse signUp(SignUpRequest signUp) throws IOException {
+		return authentication.signUp(signUp).execute().body();
 	}
 	
 	@Override

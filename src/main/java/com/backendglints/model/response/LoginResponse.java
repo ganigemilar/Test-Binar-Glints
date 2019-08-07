@@ -3,7 +3,7 @@ package com.backendglints.model.response;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Session {
+public class LoginResponse {
 	@SerializedName("status")
 	@Expose
 	private String status;

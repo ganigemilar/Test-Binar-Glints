@@ -3,7 +3,7 @@ package com.backendglints.model.request;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class UserRequest {
+public class SignUpRequest {
 	@SerializedName("name")
 	@Expose
 	private String name;
