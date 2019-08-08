@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,6 +26,7 @@ import com.backendglints.service.ApiManagementService.ApiVersion;
 import com.backendglints.service.TestBinarService;
 
 @RestController
+@RequestMapping("api")
 public class TestBinarRestController {
 	@Autowired
 	private TestBinarService testBinarService;
@@ -39,7 +41,7 @@ public class TestBinarRestController {
 		return new LoginResponse();
 	}
 	
-	@PostMapping("/auth/signup")
+	@PostMapping(value = "/auth/signup")
 	public SignUpResponse signUp(@RequestHeader("X-Api-Version") String apiVersion, @RequestBody SignUpRequest user) throws IOException {
 		for (ApiVersion apiVer : ApiManagementService.ApiVersion.values()) {
 			if (apiVer.getVersion().equals(apiVersion)) {

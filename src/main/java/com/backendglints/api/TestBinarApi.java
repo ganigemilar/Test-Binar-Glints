@@ -43,12 +43,12 @@ public interface TestBinarApi {
 		Call<ResponseBody> showProductById(@Path("id") String id);
 
 		@POST("products")
-		Call<ProductResponse> createProduct(@Body ProductRequest product);
+		Call<ResponseBody> createProduct(@Body ProductRequest product);
 
 		@PUT("products/{id}")
-		Call<ProductResponse> updateProduct(@Path("id") String id, @Body ProductRequest product);
+		Call<ResponseBody> updateProduct(@Path("id") String id, @Body ProductRequest product);
 
 		@DELETE("products/{id}")
-		Call<ProductResponse> deleteProductById(@Path("id") String id);
+		Call<ResponseBody> deleteProductById(@Path("id") String id);
 	}
 }

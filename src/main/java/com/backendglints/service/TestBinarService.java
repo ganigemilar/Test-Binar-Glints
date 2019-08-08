@@ -78,22 +78,46 @@ public class TestBinarService implements AuthenticationService, ProductService {
 
 	@Override
 	public ProductResponse addProduct(ProductRequest product) throws IOException {
-		return products.createProduct(product).execute().body();
+		ProductResponse resProd = new ProductResponse();
+		Gson gson = new Gson();
+	  
+		String responseJson = products.createProduct(product).execute().body().string();
+		LinkedHashMap<String, Object> responseMap = gson.fromJson(responseJson, LinkedHashMap.class);
+		String resultJson = gson.toJson(responseMap.get("result"));
+		ProductResponse.Result prodRes = gson.fromJson(resultJson, ProductResponse.Result.class);
+		resProd.setResult(Arrays.asList(prodRes));
+		resProd.setStatus(responseMap.get("status").toString());
+	  
+		return resProd;
 	}
 
 	@Override
 	public ProductResponse updateProduct(String id, ProductRequest product) throws IOException {
-		ProductResponse availableProduct = getProductById(id);
+		ProductResponse resProd = new ProductResponse();
+		Gson gson = new Gson();
+	  
+		String responseJson = products.updateProduct(id, product).execute().body().string();
+		LinkedHashMap<String, Object> responseMap = gson.fromJson(responseJson, LinkedHashMap.class);
+		String resultJson = gson.toJson(responseMap.get("result"));
+		ProductResponse.Result prodRes = gson.fromJson(resultJson, ProductResponse.Result.class);
+		resProd.setResult(Arrays.asList(prodRes));
+		resProd.setStatus(responseMap.get("status").toString());
 		
-		if (availableProduct == null) {
-			throw new IOException();
-		}
-		
-		return products.updateProduct(id, product).execute().body();
+		return resProd;
 	}
 
 	@Override
 	public ProductResponse deleteProductById(String id) throws IOException {
-		return products.deleteProductById(id).execute().body();
+		ProductResponse resProd = new ProductResponse();
+		Gson gson = new Gson();
+	  
+		String responseJson = products.deleteProductById(id).execute().body().string();
+		LinkedHashMap<String, Object> responseMap = gson.fromJson(responseJson, LinkedHashMap.class);
+		String resultJson = gson.toJson(responseMap.get("result"));
+		ProductResponse.Result prodRes = gson.fromJson(resultJson, ProductResponse.Result.class);
+		resProd.setResult(Arrays.asList(prodRes));
+		resProd.setStatus(responseMap.get("status").toString());
+		
+		return resProd;
 	}
 }
