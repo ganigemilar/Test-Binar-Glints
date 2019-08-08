@@ -9,8 +9,8 @@
   Pertama yang harus diperhatikan bahwa service API yang dapat digunakan adalah Ver 1 dan Ver 2, saat setiap kali melakukan request harus menyertakan header "X-Api-Version" seperti contoh : "X-Api-Version : 1" untuk menggunakan API Ver 1.
   
 Authentication
-  a. Login "http://localhost:8080/api/auth/login", Method : POST
-  b. Registration "http://localhost:8080/api/auth/signup", Method : POST
+  ## Login "http://localhost:8080/api/auth/login", Method : POST
+  ## Registration "http://localhost:8080/api/auth/signup", Method : POST
   
 Products
   a. Show All Products "http://localhost:8080/api/products", Method : GET
