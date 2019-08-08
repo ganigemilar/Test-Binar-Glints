@@ -9,15 +9,15 @@
   Pertama yang harus diperhatikan bahwa service API yang dapat digunakan adalah Ver 1 dan Ver 2, saat setiap kali melakukan request harus menyertakan header "X-Api-Version" seperti contoh : "X-Api-Version : 1" untuk menggunakan API Ver 1.
   
   1. Authentication
-  1. Login "http://localhost:8080/api/auth/login", Method : POST
-  2. Registration "http://localhost:8080/api/auth/signup", Method : POST
+    1.1. Login "http://localhost:8080/api/auth/login", Method : POST
+    1.2. Registration "http://localhost:8080/api/auth/signup", Method : POST
   
   2. Products
-  1. Show All Products "http://localhost:8080/api/products", Method : GET
-  2. Show Product By Id "http://localhost:8080/api/products/{id-product}", Method : GET
-  3. Create Product "http://localhost:8080/api/products/add", Method : POST
-  4. Update Product "http://localhost:8080/api/products/{id}/update", Method : PUT
-  5. Delete Product "http://localhost:8080/api/products/{id}/delete", Method : DELETE
+    2.1. Show All Products "http://localhost:8080/api/products", Method : GET
+    2.2. Show Product By Id "http://localhost:8080/api/products/{id-product}", Method : GET
+    2.3. Create Product "http://localhost:8080/api/products/add", Method : POST
+    2.4. Update Product "http://localhost:8080/api/products/{id}/update", Method : PUT
+    2.5. Delete Product "http://localhost:8080/api/products/{id}/delete", Method : DELETE
 
 # Uji Coba Web Service
   Ada pada dokumen "Assessment-TestBinar-Glints.pdf"
